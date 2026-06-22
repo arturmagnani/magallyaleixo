@@ -81,6 +81,73 @@
         }
         .header-cta:hover { background: var(--gold); }
 
+        /* ─── MOBILE MENU ─── */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            flex-shrink: 0;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 1px;
+            transition: transform 0.25s, opacity 0.2s;
+            transform-origin: center;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--navy);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding: 0 24px 48px;
+        }
+        body.menu-open .mobile-menu { display: flex; }
+        body.menu-open { overflow: hidden; }
+        .mobile-menu__nav { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 40px; }
+        .mobile-menu__nav a {
+            font-family: var(--serif);
+            font-size: 38px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 2px;
+            transition: color 0.2s;
+        }
+        .mobile-menu__nav a:hover { color: var(--gold-light); }
+        .mobile-menu__cta {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: var(--white);
+            padding: 16px 40px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .mobile-menu__cta:hover { background: var(--gold); color: var(--white); }
+        body.menu-open header { z-index: 101; }
+        body.menu-open .menu-toggle span { background: var(--white); }
+        body.menu-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        body.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+        body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
         /* ─── HERO ─── */
         .hero {
             height: calc(100vh - 72px);
@@ -721,6 +788,7 @@
             }
             .logo { font-size: 18px; flex-shrink: 0; }
             nav { display: none; }
+            .menu-toggle { display: flex; }
             .header-cta {
                 margin-left: 0;
                 padding: 10px 14px;
@@ -840,8 +908,20 @@
         <a href="#metodo">Método</a>
         <a href="#preco">Investimento</a>
     </nav>
+    <button type="button" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
     <a href="https://pay.hotmart.com/J97713780W?off=6gd7jbxx&bid=1781181537562" class="header-cta">Garantir vaga</a>
 </header>
+
+<div class="mobile-menu" role="dialog" aria-label="Menu de navegação">
+    <nav class="mobile-menu__nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#metodo">Método</a>
+        <a href="#preco">Investimento</a>
+    </nav>
+    <a href="https://pay.hotmart.com/J97713780W?off=6gd7jbxx&bid=1781181537562" class="mobile-menu__cta">Garantir minha vaga</a>
+</div>
 
 <!-- ─────── HERO ─────── -->
 <section class="hero">
@@ -1292,6 +1372,24 @@
             if (!wrap.classList.contains('is-playing')) return;
             if (video.paused) resumeVideo();
             else pauseVideo();
+        });
+    });
+})();
+
+(function () {
+    var toggle = document.querySelector('.menu-toggle');
+    var menu = document.querySelector('.mobile-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function () {
+        var isOpen = document.body.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            document.body.classList.remove('menu-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Abrir menu');
         });
     });
 })();
