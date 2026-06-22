@@ -106,7 +106,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: var(--navy);
+            background: var(--cream);
             z-index: 99;
             flex-direction: column;
             align-items: center;
@@ -116,34 +116,35 @@
         }
         body.menu-open .mobile-menu { display: flex; }
         body.menu-open { overflow: hidden; }
-        .mobile-menu__nav { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 40px; }
+        .mobile-menu__nav { display: flex; flex-direction: column; align-items: center; gap: 32px; margin-bottom: 48px; }
         .mobile-menu__nav a {
-            font-family: var(--serif);
-            font-size: 38px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.85);
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-mid);
             text-decoration: none;
             text-align: center;
-            letter-spacing: 2px;
             transition: color 0.2s;
         }
-        .mobile-menu__nav a:hover { color: var(--gold-light); }
+        .mobile-menu__nav a:hover { color: var(--gold); }
         .mobile-menu__cta {
             font-family: var(--sans);
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--navy);
-            background: var(--white);
+            color: var(--white);
+            background: var(--navy);
             padding: 16px 40px;
             border-radius: 2px;
             text-decoration: none;
-            transition: background 0.2s, color 0.2s;
+            transition: background 0.2s;
         }
-        .mobile-menu__cta:hover { background: var(--gold); color: var(--white); }
+        .mobile-menu__cta:hover { background: var(--gold); }
         body.menu-open header { z-index: 101; }
-        body.menu-open .menu-toggle span { background: var(--white); }
+        body.menu-open .menu-toggle span { background: var(--navy); }
         body.menu-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         body.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
         body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
