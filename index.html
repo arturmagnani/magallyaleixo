@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método Forte | Magally Aleixo</title>
     <meta name="description" content="Construa uma liderança forte e um time que entrega com autonomia. Método FORTE por Magally Aleixo.">
+    <meta property="og:title" content="Método FORTE | Magally Aleixo">
+    <meta property="og:description" content="Construa uma liderança forte e um time que entrega com autonomia. Método FORTE por Magally Aleixo.">
+    <meta property="og:image" content="https://arturmagnani.github.io/magallyaleixo/images/hero.webp">
+    <meta property="og:url" content="https://arturmagnani.github.io/magallyaleixo/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -586,8 +592,10 @@
             align-items: center;
             gap: 24px;
         }
-        .faq-q::after { content: '+'; font-family: var(--sans); font-size: 20px; color: var(--gold); font-weight: 300; flex-shrink: 0; }
-        .faq-a { padding: 0 0 24px; font-size: 15px; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+        .faq-q::after { content: '+'; font-family: var(--sans); font-size: 20px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.25s; }
+        .faq-item.is-open .faq-q::after { transform: rotate(45deg); }
+        .faq-a { padding: 0 0 24px; font-size: 15px; color: var(--text-mid); line-height: 1.8; font-weight: 300; display: none; }
+        .faq-item.is-open .faq-a { display: block; }
 
         /* ─── VÍDEO (player) ─── */
         .video-player {
@@ -1078,7 +1086,7 @@
             <h2 class="section-title">O Método <em>FORTE</em></h2>
             <p class="section-subtitle">Cinco pilares desenvolvidos ao longo de mais de duas décadas de liderança prática e resultados reais.</p>
         </div>
-        <div class="metodo__list" id="metodo">
+        <div class="metodo__list">
             <div class="metodo__row">
                 <div class="metodo__letra"><span class="metodo__letra-txt">F</span></div>
                 <div class="metodo__content">
@@ -1397,6 +1405,17 @@
     });
     var logo = document.querySelector('.logo');
     if (logo) logo.addEventListener('click', closeMenu);
+})();
+
+(function () {
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.addEventListener('click', function () {
+            var item = btn.closest('.faq-item');
+            var isOpen = item.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', String(isOpen));
+        });
+    });
 })();
 </script>
 
