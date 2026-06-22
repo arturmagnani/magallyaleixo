@@ -684,34 +684,140 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; min-height: auto; }
-            .hero__left { padding: 80px 40px; order: 2; }
-            .hero__right { height: 60vw; order: 1; }
-            .hero__right-overlay { left: 0; }
-            .sobre__grid { grid-template-columns: 1fr; }
-            .sobre__img { min-height: 420px; height: 420px; }
-            .sobre__content-side { padding: 60px 40px; }
-            .benef__grid { grid-template-columns: 1fr; gap: 48px; }
+            .hero { grid-template-columns: 1fr; min-height: auto; max-height: none; }
+            .hero__left { padding: 56px 40px; order: 2; }
+            .hero__right { height: 50vw; max-height: 480px; min-height: 280px; order: 1; }
+            .sobre__grid,
+            .section--sobre .sobre__grid { grid-template-columns: 1fr; }
+            .sobre__photo-side,
+            .section--sobre .sobre__photo-side { width: 100%; height: auto; max-width: 420px; margin: 0 auto; }
+            .sobre__img { min-height: 0; height: auto; max-height: 480px; object-fit: cover; }
+            .sobre__content-side,
+            .section--sobre .sobre__content-side { padding: 48px 40px; }
+            .benef__grid,
+            .section--benef .benef__grid { grid-template-columns: 1fr; gap: 0; }
+            .benef__photo-side,
+            .section--benef .benef__photo-side { width: 100%; max-width: 420px; margin: 0 auto; }
+            .section--benef .benef__content { padding: 40px; }
             .preco__grid { grid-template-columns: 1fr; max-width: 640px; }
-            .preco__photo-side img { min-height: 360px; height: 360px; }
-            .metodo__row { grid-template-columns: 80px 1fr; }
-            .metodo__letra { padding: 24px; }
-            .metodo__letra-txt { font-size: 48px; }
-            .metodo__content { padding: 24px 32px; flex-direction: column; align-items: flex-start; gap: 8px; }
+            .preco__photo-side img { min-height: 320px; height: 320px; }
+            .metodo__row,
+            .section--metodo .metodo__row { grid-template-columns: 72px 1fr; }
+            .metodo__letra,
+            .section--metodo .metodo__letra { padding: 20px 12px; }
+            .metodo__letra-txt,
+            .section--metodo .metodo__letra-txt { font-size: 44px; }
+            .metodo__content,
+            .section--metodo .metodo__content { padding: 20px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+            .metodo__title,
+            .section--metodo .metodo__title { min-width: 0; font-size: 20px; }
         }
 
         @media (max-width: 768px) {
-            header { padding: 16px 24px; }
+            html { scroll-padding-top: 64px; }
+            header {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+            .logo { font-size: 18px; flex-shrink: 0; }
             nav { display: none; }
-            .wrap, .wrap--narrow { padding: 0 24px; }
-            .section { padding: 72px 0; }
+            .header-cta {
+                margin-left: 0;
+                padding: 10px 14px;
+                font-size: 10px;
+                letter-spacing: 1px;
+                white-space: nowrap;
+            }
+            .wrap, .wrap--narrow { padding: 0 20px; }
+            .section { padding: 56px 0; }
+            .section--problema { padding: 40px 0; }
+            .section--mentiras { padding: 40px 0; }
+            .section--metodo { padding: 40px 0; }
+            .section--preco { padding: 40px 0; }
+            .section-header { margin-bottom: 32px; }
+            .section-title { font-size: clamp(26px, 7vw, 34px); }
+            .hero { margin-top: 64px; }
+            .hero__right { height: 62vw; max-height: 380px; min-height: 240px; }
+            .hero__left { padding: 36px 20px 44px; }
+            .hero__title { font-size: clamp(28px, 8.5vw, 36px); margin-bottom: 16px; }
+            .hero__sub { font-size: 14px; margin-bottom: 28px; }
+            .hero__actions { width: 100%; }
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 20px;
+                font-size: 11px;
+            }
+            .stats-strip { flex-direction: column; }
+            .stats-strip .hero__stat { padding: 14px 20px; width: 100%; }
+            .stats-strip .hero__stat-num { font-size: 28px; }
+            .stats-strip .hero__stat-label { font-size: 10px; }
+            .stats-strip .hero__stat-div { width: 64px; height: 1px; }
             .problema__grid { grid-template-columns: 1fr; }
-            .incluso__grid { grid-template-columns: 1fr; }
-            .preco__card { padding: 40px 28px; }
-            .preco__top { flex-direction: column; align-items: flex-start; gap: 24px; }
+            .section--problema .section-title { font-size: clamp(22px, 6vw, 28px); }
+            .problema__item { padding: 20px 18px; }
+            .problema__num { font-size: 36px; }
+            .problema__item h3 { font-size: 20px; }
+            .problema__item p { font-size: 15px; }
+            .problema__quote { margin-top: 40px; padding: 28px 24px; }
+            .problema__quote p { font-size: clamp(18px, 5vw, 24px); }
+            .sobre__photo-side,
+            .section--sobre .sobre__photo-side { max-width: none; }
+            .sobre__content-side,
+            .section--sobre .sobre__content-side { padding: 36px 20px; }
+            .section--sobre .section-title { font-size: clamp(26px, 7vw, 34px); }
+            .section--sobre .sobre__bio { font-size: 15px; margin-bottom: 24px; }
+            .section--mentiras .section-title { font-size: clamp(22px, 6vw, 28px); }
+            .section--mentiras .mentira-item,
+            .mentira-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; }
+            .section--mentiras .mentira-item__num,
+            .mentira-item__num { font-size: 32px; }
+            .section--mentiras .mentira-item h3,
+            .mentira-item h3 { font-size: 18px; }
+            .section--mentiras .mentira-item > div > p:not(.mentira-item__badge),
+            .mentira-item p { font-size: 15px; }
+            .section--metodo .section-title { font-size: clamp(22px, 6vw, 28px); }
+            .metodo__row,
+            .section--metodo .metodo__row { grid-template-columns: 56px 1fr; }
+            .metodo__letra,
+            .section--metodo .metodo__letra { padding: 16px 8px; }
+            .metodo__letra-txt,
+            .section--metodo .metodo__letra-txt { font-size: 36px; }
+            .metodo__content,
+            .section--metodo .metodo__content { padding: 16px 18px; }
+            .section--metodo .metodo__title { font-size: 18px; }
+            .section--metodo .metodo__desc { font-size: 15px; }
+            .benef__photo-side,
+            .section--benef .benef__photo-side { max-width: none; }
+            .section--benef .benef__content { padding: 36px 20px; }
+            .section--benef .section-title { font-size: clamp(26px, 7vw, 34px); }
+            .section--benef .benef-item p { font-size: 15px; }
+            .section--benef .benef__cta { margin-top: 24px; }
+            .video-player__play { width: 56px; height: 56px; }
+            .video-player__label { font-size: 10px; letter-spacing: 1.5px; }
+            .incluso__grid { grid-template-columns: 1fr; gap: 16px; }
+            .incluso-card { padding: 28px 24px; }
+            .preco__grid { max-width: none; }
+            .preco__photo-side img { min-height: 260px; height: 260px; }
+            .preco__card,
+            .section--preco .preco__card { padding: 32px 24px; }
+            .preco__top { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .preco__valor { font-size: clamp(48px, 14vw, 64px); }
             .preco__avista { text-align: left; }
-            .hero__left { padding: 60px 24px; }
-            footer { flex-direction: column; gap: 16px; text-align: center; }
+            .preco__cta .btn-primary { width: 100%; }
+            .faq-q { font-size: 15px; padding: 18px 0; gap: 16px; }
+            .faq-a { font-size: 14px; padding-bottom: 20px; }
+            .cta-final { padding: 72px 20px; }
+            .cta-final h2 { font-size: clamp(28px, 8vw, 40px); }
+            .cta-final p { margin-bottom: 36px; font-size: 14px; }
+            footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+            .footer-copy, .footer-email a { font-size: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .header-cta { padding: 10px 12px; font-size: 9px; }
+            .hero__eyebrow { font-size: 10px; letter-spacing: 2px; }
+            .hero__safe { font-size: 11px; }
         }
     </style>
 
