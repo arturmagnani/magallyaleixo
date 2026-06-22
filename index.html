@@ -25,7 +25,7 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 72px; }
         body { font-family: var(--sans); color: var(--text); background: var(--white); line-height: 1.7; overflow-x: hidden; }
         img { max-width: 100%; height: auto; image-orientation: from-image; display: block; }
 
@@ -102,6 +102,7 @@
             height: 100%;
             object-fit: contain;
             object-position: center bottom;
+            display: block;
         }
         /* ─── STATS STRIP ─── */
         .stats-strip {
@@ -113,16 +114,16 @@
             border-bottom: 1px solid var(--border);
             background: var(--white);
         }
-        .hero__stat { text-align: center; flex: 1; padding: 28px 32px; }
-        .hero__stat-num {
+        .stats-strip .hero__stat { text-align: center; flex: 1; padding: 16px 32px; }
+        .stats-strip .hero__stat-num {
             font-family: var(--serif);
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 300;
             color: var(--navy);
             line-height: 1;
         }
-        .hero__stat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-top: 4px; }
-        .hero__stat-div { width: 1px; height: 40px; background: var(--border); align-self: center; }
+        .stats-strip .hero__stat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-top: 4px; }
+        .stats-strip .hero__stat-div { width: 1px; height: 32px; background: var(--border); align-self: center; }
 
         .hero__eyebrow {
             font-size: 11px;
@@ -230,12 +231,16 @@
         .section-header--center .section-subtitle { margin: 0 auto; }
 
         /* ─── PROBLEMA ─── */
+        .section--problema { padding: 48px 0; scroll-margin-top: 72px; }
+        .section--problema .section-tag { margin-bottom: 12px; }
+        .section--problema .section-title { font-size: clamp(24px, 3vw, 38px); margin-bottom: 16px; }
+        .section--problema .section-header { margin-bottom: 28px; }
         .problema__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-        .problema__item { background: var(--white); padding: 32px 28px; }
+        .problema__item { background: var(--white); padding: 24px 24px; }
         .problema__item:hover { background: var(--cream); }
-        .problema__num { font-family: var(--serif); font-size: 48px; font-weight: 300; color: var(--cream-dark); line-height: 1; margin-bottom: 12px; }
-        .problema__item h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 12px; }
-        .problema__item p { font-size: 14px; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+        .problema__num { font-family: var(--serif); font-size: 42px; font-weight: 300; color: var(--cream-dark); line-height: 1; margin-bottom: 8px; }
+        .problema__item h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 8px; }
+        .problema__item p { font-size: 16px; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
 
         .problema__quote {
             margin-top: 80px;
@@ -254,6 +259,25 @@
         .problema__quote em { color: var(--gold); font-style: normal; }
 
         /* ─── SOBRE ─── */
+        .section--sobre { scroll-margin-top: 72px; }
+        .section--sobre .sobre__grid { grid-template-columns: 300px 1fr; align-items: start; }
+        .section--sobre .sobre__photo-side {
+            width: 300px;
+            height: auto;
+            background: var(--cream);
+            overflow: hidden;
+        }
+        .section--sobre .sobre__img { width: 100%; height: auto; display: block; }
+        .section--sobre .sobre__content-side { padding: 36px 48px; justify-content: flex-start; }
+        .section--sobre .gold-rule { margin-bottom: 16px; }
+        .section--sobre .section-tag { margin-bottom: 12px; }
+        .section--sobre .section-title { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 12px; }
+        .section--sobre .sobre__name { margin-bottom: 16px; font-size: 20px; }
+        .section--sobre .sobre__bio { font-size: 16px; line-height: 1.75; margin-bottom: 28px; }
+        .section--sobre .cred-item { padding: 14px 0; gap: 16px; }
+        .section--sobre .cred-num { font-size: 28px; min-width: 52px; }
+        .section--sobre .cred-text { font-size: 15px; line-height: 1.5; }
+        .section--sobre .cred-text strong { font-size: 16px; }
         .sobre__grid { display: grid; grid-template-columns: 380px 1fr; gap: 0; align-items: center; }
         .sobre__photo-side { position: relative; overflow: hidden; width: 380px; height: 420px; flex-shrink: 0; }
         .sobre__img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
@@ -286,6 +310,15 @@
         .cred-text strong { display: block; font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
 
         /* ─── MENTIRAS ─── */
+        .section--mentiras { padding: 48px 0; }
+        .section--mentiras .section-tag { margin-bottom: 12px; }
+        .section--mentiras .section-title { font-size: clamp(24px, 3vw, 38px); margin-bottom: 16px; }
+        .section--mentiras .section-header { margin-bottom: 28px; }
+        .section--mentiras .mentira-item { grid-template-columns: 56px 1fr; gap: 24px; padding: 28px 0; }
+        .section--mentiras .mentira-item__num { font-size: 44px; }
+        .section--mentiras .mentira-item__badge { margin-bottom: 6px; font-size: 11px; }
+        .section--mentiras .mentira-item h3 { font-size: 22px; margin-bottom: 8px; }
+        .section--mentiras .mentira-item > div > p:not(.mentira-item__badge) { font-size: 16px; line-height: 1.75; }
         .mentiras { background: var(--navy); }
         .mentiras__grid { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); }
         .mentira-item {
@@ -302,6 +335,18 @@
         .mentira-item p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.8; font-weight: 300; }
 
         /* ─── MÉTODO ─── */
+        .section--metodo { padding: 32px 0 40px; }
+        .section--metodo #metodo { scroll-margin-top: 72px; }
+        .section--metodo .section-tag { margin-bottom: 12px; }
+        .section--metodo .section-title { font-size: clamp(24px, 3vw, 38px); margin-bottom: 12px; }
+        .section--metodo .section-subtitle { font-size: 16px; line-height: 1.75; }
+        .section--metodo .section-header { margin-bottom: 20px; }
+        .section--metodo .metodo__row { grid-template-columns: 72px 1fr; }
+        .section--metodo .metodo__letra { padding: 14px 12px; }
+        .section--metodo .metodo__letra-txt { font-size: 48px; }
+        .section--metodo .metodo__content { padding: 14px 28px; gap: 28px; }
+        .section--metodo .metodo__title { font-size: 22px; min-width: 130px; }
+        .section--metodo .metodo__desc { font-size: 16px; line-height: 1.7; }
         .metodo__row {
             display: grid;
             grid-template-columns: 200px 1fr;
@@ -329,6 +374,26 @@
         .metodo__desc { font-size: 14px; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
 
         /* ─── BENEFÍCIOS ─── */
+        .section--benef .benef__grid { grid-template-columns: 300px 1fr; gap: 0; align-items: start; }
+        .section--benef .benef__photo-side {
+            width: 300px;
+            background: var(--cream);
+            overflow: hidden;
+        }
+        .section--benef .benef__photo-side .video-player {
+            max-width: none;
+            margin: 0;
+            box-shadow: none;
+        }
+        .section--benef .benef__img { width: 100%; height: auto; display: block; }
+        .section--benef .benef__content { padding: 36px 48px; background: var(--white); }
+        .section--benef .gold-rule { margin-bottom: 16px; }
+        .section--benef .section-tag { margin-bottom: 12px; }
+        .section--benef .section-title { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 12px; }
+        .section--benef .benef__content h2 { margin-bottom: 28px; }
+        .section--benef .benef-item { padding: 14px 0; gap: 16px; }
+        .section--benef .benef-item p { font-size: 16px; line-height: 1.75; }
+        .section--benef .benef__cta { margin-top: 32px; }
         .benef__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         .benef__img { width: 100%; height: 660px; object-fit: cover; object-position: top center; }
         .benef__content h2 { margin-bottom: 40px; }
@@ -369,6 +434,36 @@
         .incluso-card--main p { color: rgba(255,255,255,0.55); }
 
         /* ─── PREÇO ─── */
+        .section--preco { padding: 40px 0 48px; scroll-margin-top: 72px; }
+        .section--preco .section-tag { margin-bottom: 12px; }
+        .section--preco .section-title { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 12px; }
+        .section--preco .section-header { margin-bottom: 24px; }
+        .section--preco .preco__card { padding: 48px; }
+        .section--preco .preco__top { margin-bottom: 32px; padding-bottom: 32px; }
+        .preco__grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 0;
+            max-width: 920px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+        .preco__photo-side {
+            overflow: hidden;
+            background: var(--cream);
+        }
+        .preco__photo-side img {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        .section--preco .preco__grid .preco__card {
+            max-width: none;
+            margin: 0;
+        }
         .preco { background: var(--cream); }
         .preco__card {
             max-width: 640px;
@@ -426,6 +521,131 @@
         .faq-q::after { content: '+'; font-family: var(--sans); font-size: 20px; color: var(--gold); font-weight: 300; flex-shrink: 0; }
         .faq-a { padding: 0 0 24px; font-size: 15px; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
 
+        /* ─── VÍDEO (player) ─── */
+        .video-player {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--navy);
+            line-height: 0;
+            box-shadow: 0 24px 64px rgba(26, 35, 50, 0.12);
+        }
+        .video-player__media {
+            width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: top;
+            position: relative;
+            z-index: 1;
+        }
+        .video-player__poster {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+        .video-player.is-idle .video-player__poster {
+            display: block;
+        }
+        .video-player.is-idle .video-player__media {
+            display: none;
+        }
+        .video-player__overlay {
+            z-index: 2;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 24px;
+            border: none;
+            background: linear-gradient(180deg, rgba(26, 35, 50, 0.15) 0%, rgba(26, 35, 50, 0.45) 100%);
+            cursor: pointer;
+            transition: opacity 0.35s, background 0.35s;
+        }
+        .video-player__overlay:hover {
+            background: linear-gradient(180deg, rgba(26, 35, 50, 0.2) 0%, rgba(26, 35, 50, 0.55) 100%);
+        }
+        .video-player.is-playing .video-player__overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .video-player.is-paused .video-player__overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .video-player__play {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.25s, background 0.25s;
+        }
+        .video-player__overlay:hover .video-player__play {
+            transform: scale(1.06);
+            background: var(--gold);
+            color: var(--white);
+        }
+        .video-player__label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+        }
+        .video-player__bar {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            padding: 12px;
+            background: linear-gradient(0deg, rgba(26, 35, 50, 0.75) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.25s;
+            pointer-events: none;
+        }
+        .video-player.is-playing:hover .video-player__bar,
+        .video-player.is-playing:focus-within .video-player__bar {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .video-player__ctrl {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+        .video-player__ctrl:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+        .video-player__ctrl .icon-pause,
+        .video-player__ctrl .icon-sound-on { display: none; }
+        .video-player.is-playing:not(.is-paused) .video-player__ctrl--toggle .icon-play { display: none; }
+        .video-player.is-playing:not(.is-paused) .video-player__ctrl--toggle .icon-pause { display: block; }
+        .video-player.is-muted .video-player__ctrl--sound .icon-sound-off { display: none; }
+        .video-player.is-muted .video-player__ctrl--sound .icon-sound-on { display: block; }
+
         /* ─── CTA FINAL ─── */
         .cta-final {
             background: var(--navy);
@@ -472,6 +692,8 @@
             .sobre__img { min-height: 420px; height: 420px; }
             .sobre__content-side { padding: 60px 40px; }
             .benef__grid { grid-template-columns: 1fr; gap: 48px; }
+            .preco__grid { grid-template-columns: 1fr; max-width: 640px; }
+            .preco__photo-side img { min-height: 360px; height: 360px; }
             .metodo__row { grid-template-columns: 80px 1fr; }
             .metodo__letra { padding: 24px; }
             .metodo__letra-txt { font-size: 48px; }
@@ -562,7 +784,7 @@
 </div>
 
 <!-- ─────── PROBLEMA ─────── -->
-<section class="section" id="problema">
+<section class="section section--problema" id="problema">
     <div class="wrap">
         <div class="section-header">
             <span class="section-tag">Você se identifica?</span>
@@ -592,7 +814,7 @@
 </section>
 
 <!-- ─────── SOBRE ─────── -->
-<section class="section--cream" id="sobre">
+<section class="section--cream section--sobre" id="sobre">
     <div class="sobre__grid">
         <div class="sobre__photo-side">
             <img src="images/sobre.jpg" alt="Magally Aleixo" class="sobre__img">
@@ -625,7 +847,7 @@
 </section>
 
 <!-- ─────── MENTIRAS ─────── -->
-<section class="section mentiras">
+<section class="section section--mentiras mentiras">
     <div class="wrap--narrow">
         <div class="section-header">
             <span class="section-tag" style="color:rgba(184,150,90,0.8)">O que dizem por aí</span>
@@ -661,14 +883,14 @@
 </section>
 
 <!-- ─────── MÉTODO ─────── -->
-<section class="section" id="metodo">
+<section class="section section--metodo" id="metodo">
     <div class="wrap">
         <div class="section-header section-header--center">
             <span class="section-tag">A metodologia</span>
             <h2 class="section-title">O Método <em>FORTE</em></h2>
             <p class="section-subtitle">Cinco pilares desenvolvidos ao longo de mais de duas décadas de liderança prática e resultados reais.</p>
         </div>
-        <div>
+        <div class="metodo__list" id="metodo">
             <div class="metodo__row">
                 <div class="metodo__letra"><span class="metodo__letra-txt">F</span></div>
                 <div class="metodo__content">
@@ -709,13 +931,46 @@
 </section>
 
 <!-- ─────── BENEFÍCIOS ─────── -->
-<section class="section section--cream">
-    <div class="wrap">
-        <div class="benef__grid">
-            <div>
-                <img src="images/pose2.jpg" alt="Magally Aleixo" class="benef__img">
+<section class="section--cream section--benef">
+    <div class="benef__grid">
+        <div class="benef__photo-side">
+            <div class="video-player is-idle" data-video-player>
+                <img class="video-player__poster" src="images/pose2.jpg" alt="" aria-hidden="true">
+                <video
+                    class="video-player__media"
+                    playsinline
+                    preload="metadata"
+                    poster="images/pose2.jpg"
+                    aria-label="Mensagem da Magally Aleixo sobre o Método FORTE"
+                >
+                    <source src="videos/Magally%20Aleixo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="video-player__overlay" data-video-play aria-label="Assistir apresentação da Magally Aleixo">
+                    <span class="video-player__play" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                    <span class="video-player__label">Assistir apresentação</span>
+                </button>
+                <div class="video-player__bar">
+                    <button type="button" class="video-player__ctrl video-player__ctrl--toggle" data-video-toggle aria-label="Pausar vídeo">
+                        <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                    </button>
+                    <button type="button" class="video-player__ctrl video-player__ctrl--sound" data-video-sound aria-label="Desativar som" aria-pressed="true">
+                        <svg class="icon-sound-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                            <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>
+                        </svg>
+                        <svg class="icon-sound-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                            <line x1="23" y1="9" x2="17" y2="15"/>
+                            <line x1="17" y1="9" x2="23" y2="15"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="benef__content">
+        </div>
+        <div class="benef__content">
                 <span class="gold-rule"></span>
                 <span class="section-tag">O que você vai conquistar</span>
                 <h2 class="section-title">Ao adquirir o Método FORTE, você vai:</h2>
@@ -747,7 +1002,6 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
-            </div>
         </div>
     </div>
 </section>
@@ -782,13 +1036,17 @@
 </section>
 
 <!-- ─────── PREÇO ─────── -->
-<section class="section preco" id="preco">
+<section class="section section--preco preco" id="preco">
     <div class="wrap">
         <div class="section-header section-header--center">
             <span class="section-tag">Investimento</span>
             <h2 class="section-title">Garanta seu acesso agora</h2>
         </div>
-        <div class="preco__card">
+        <div class="preco__grid">
+            <div class="preco__photo-side">
+                <img src="images/pose2.jpg" alt="Magally Aleixo" class="preco__img">
+            </div>
+            <div class="preco__card">
             <div class="preco__top">
                 <div>
                     <p class="preco__parcelado-label">12 parcelas de</p>
@@ -809,6 +1067,7 @@
             <div class="preco__garantia">
                 <span class="preco__garantia-icon">🛡️</span>
                 <p><strong>Garantia incondicional de 7 dias.</strong> Teste sem risco. Se não gostar, devolvemos 100% do seu investimento — sem perguntas.</p>
+            </div>
             </div>
         </div>
     </div>
@@ -855,8 +1114,82 @@
 <footer>
     <span class="footer-logo">Magally <span>Aleixo</span></span>
     <span class="footer-copy">Copyright © 2025 | Todos os direitos reservados</span>
-    <div class="footer-email"><a href="mailto:[email protected]">[email protected]</a></div>
+    <div class="footer-email"><a href="mailto:comercialmagallyaleixo@gmail.com">comercialmagallyaleixo@gmail.com</a></div>
 </footer>
+
+<script>
+(function () {
+    document.querySelectorAll('[data-video-player]').forEach(function (wrap) {
+        var video = wrap.querySelector('video');
+        var playBtn = wrap.querySelector('[data-video-play]');
+        var toggleBtn = wrap.querySelector('[data-video-toggle]');
+        var soundBtn = wrap.querySelector('[data-video-sound]');
+        if (!video || !playBtn) return;
+
+        function pauseVideo() {
+            video.pause();
+            wrap.classList.add('is-paused');
+            toggleBtn.setAttribute('aria-label', 'Retomar vídeo');
+        }
+
+        function resumeVideo() {
+            video.play();
+            wrap.classList.remove('is-paused');
+            toggleBtn.setAttribute('aria-label', 'Pausar vídeo');
+        }
+
+        function startVideo() {
+            video.muted = false;
+            video.volume = 1;
+            wrap.classList.remove('is-muted', 'is-idle');
+            soundBtn.setAttribute('aria-pressed', 'true');
+            soundBtn.setAttribute('aria-label', 'Desativar som');
+            wrap.classList.add('is-playing');
+            wrap.classList.remove('is-paused');
+            toggleBtn.setAttribute('aria-label', 'Pausar vídeo');
+            video.play();
+        }
+
+        function resetVideo() {
+            video.pause();
+            video.currentTime = 0;
+            wrap.classList.remove('is-playing', 'is-paused');
+            wrap.classList.add('is-idle');
+            toggleBtn.setAttribute('aria-label', 'Pausar vídeo');
+        }
+
+        playBtn.addEventListener('click', function () {
+            if (video.paused) {
+                if (video.currentTime > 0) resumeVideo();
+                else startVideo();
+            } else {
+                pauseVideo();
+            }
+        });
+
+        toggleBtn.addEventListener('click', function () {
+            if (video.paused) resumeVideo();
+            else pauseVideo();
+        });
+
+        soundBtn.addEventListener('click', function () {
+            video.muted = !video.muted;
+            wrap.classList.toggle('is-muted', video.muted);
+            soundBtn.setAttribute('aria-pressed', String(!video.muted));
+            soundBtn.setAttribute('aria-label', video.muted ? 'Ativar som' : 'Desativar som');
+        });
+
+        video.addEventListener('ended', resetVideo);
+
+        video.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (!wrap.classList.contains('is-playing')) return;
+            if (video.paused) resumeVideo();
+            else pauseVideo();
+        });
+    });
+})();
+</script>
 
 </body>
 </html>
