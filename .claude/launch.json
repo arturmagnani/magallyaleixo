@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "magally",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4568"],
+      "port": 4568
+    }
+  ]
+}
